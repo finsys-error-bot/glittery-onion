@@ -7,8 +7,6 @@ on:
 jobs:
   assign-on-call-analyst:
     runs-on: ubuntu-latest
-    env:
-      FINANCIAL_SYSTEMS_ON_CALL_ANALYST: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
     permissions:
       issues: write
     if: github.event.label.name == 'admin-fin-sys-bot'
@@ -19,3 +17,5 @@ jobs:
           actions: 'add-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
+      - name: Tell Me Who's On Call
+        run: echo "${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }} is on call!" 
