@@ -16,6 +16,6 @@ jobs:
         with:
           actions: 'add-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: @finsys-error-bot
+          assignees: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
       - name: Tell Me Who's On Call
         run: echo "${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }} is on call!" 
