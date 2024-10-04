@@ -7,11 +7,11 @@ on:
 jobs:
   assign-on-call-analyst:
     runs-on: ubuntu-latest
-    env:
-      FINANCIAL_SYSTEMS_ON_CALL_ANALYST: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
+#    env:
+#      FINANCIAL_SYSTEMS_ON_CALL_ANALYST: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
     permissions:
       issues: write
-    if: github.event.label.name == 'admin-fin-sys-bot-on-call'
+    if: github.event.label.name == 'admin-fin-sys-bot'
     steps:
       - name: Assign Issue
         uses: actions-cool/issues-helper@v3.6.0
