@@ -12,8 +12,7 @@ jobs:
     if: github.event.label.name == 'admin-fin-sys-bot'
     steps:
       - name: Assign Issue
-        uses: actions-cool/issues-helper@v3.6.0
+        uses: actions-ecosystem/action-add-assignees@v1
         with:
-          actions: 'update-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ env.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
