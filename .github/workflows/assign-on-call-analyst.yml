@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-    if: github.event.label.name == 'admin-fin-sys-bot'
+    if: github.event.label.name == 'admin-fin-sys-bot-on-call'
     steps:
       - name: Assign Issue
-        uses: actions-ecosystem/action-add-assignees@v1
+        uses: actions-cool/issues-helper@v3.6.0
         with:
+          actions: 'update-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: ${{ env.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
+          assignees: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
