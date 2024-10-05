@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-    if: github.event.label.name == 'admin-fin-sys-bot'
+    if: github.event.label.name == 'admin-fin-sys-bot-on-call'
     steps:
       - name: Assign Issue
         uses: actions-cool/issues-helper@v3.6.0
@@ -17,5 +17,3 @@ jobs:
           actions: 'add-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }}
-      - name: Tell Me Who's On Call
-        run: echo "${{ vars.FINANCIAL_SYSTEMS_ON_CALL_ANALYST }} is on call!" 
